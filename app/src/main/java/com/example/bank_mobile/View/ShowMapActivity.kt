@@ -1,11 +1,12 @@
-package com.example.bank_mobile
+package com.example.bank_mobile.View
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.bank_mobile.R
 
-class StartActivity : AppCompatActivity() {
+class ShowMapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        setContentView(R.layout.activity_show_map)
     }
 }

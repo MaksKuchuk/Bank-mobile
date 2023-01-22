@@ -12,7 +12,31 @@
         android:theme="@style/Theme.Bankmobile"
         tools:targetApi="31">
         <activity
-            android:name=".StartActivity"
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanOnlineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfPlacesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegAuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
