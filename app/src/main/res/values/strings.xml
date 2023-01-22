@@ -4,4 +4,9 @@
     <string name="a_simple_way_to_get_a_microloan">A simple way to get a microloan</string>
     <string name="the_best_way_to_get_a_microloan_just_by_using_your_phone">The best way to get a microloan just by using your phone</string>
     <string name="start">Start</string>
+    <string name="verification">Verification</string>
+    <string name="show_map">Show map</string>
+    <string name="list_of_places">List of places</string>
+    <string name="loan_online">Loan online</string>
+    <string name="my_profile">My Profile</string>
 </resources>
