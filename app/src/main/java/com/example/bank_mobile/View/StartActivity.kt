@@ -15,7 +15,7 @@ class StartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnStart.setOnClickListener {
-            Intent(this, StartActivity::class.java).also { startActivity(it) }
+            Intent(this, MainActivity::class.java).also { startActivity(it) }
         }
     }
 }
