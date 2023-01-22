@@ -11,16 +11,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVerification"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_stroke"
-        android:minHeight="80dp"
-        android:padding="32dp"
         android:text="@string/verification"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,16 +27,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnShowMap"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_stroke"
-        android:minHeight="80dp"
-        android:padding="32dp"
         android:text="@string/show_map"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/center"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,16 +43,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnListOfPlaces"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_stroke"
-        android:minHeight="80dp"
-        android:padding="30dp"
         android:text="@string/list_of_places"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnVerification" />
@@ -62,16 +59,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLoanOnline"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_stroke"
-        android:minHeight="80dp"
-        android:padding="32dp"
         android:text="@string/loan_online"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/center"
         app:layout_constraintTop_toBottomOf="@+id/btnShowMap" />
@@ -79,16 +75,15 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMyProfile"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_stroke"
-        android:minHeight="80dp"
-        android:padding="32dp"
         android:text="@string/my_profile"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnListOfPlaces" />
@@ -100,6 +95,18 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/btnFAQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/questionicon"
+        android:background="@android:color/transparent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="FAQ" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
