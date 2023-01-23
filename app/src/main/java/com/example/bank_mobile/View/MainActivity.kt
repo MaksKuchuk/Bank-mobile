@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
                     startActivity(it)
                 }
             }
+
+            btnFAQ.setOnClickListener {
+                Intent(this@MainActivity, HelpActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
         }
     }
 }

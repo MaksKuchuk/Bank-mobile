@@ -15,7 +15,7 @@ class StartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnStart.setOnClickListener {
-            Intent(this, MainActivity::class.java).also { startActivity(it) }
+            Intent(this, RegAuthActivity::class.java).also { startActivity(it) }
         }
     }
 }
