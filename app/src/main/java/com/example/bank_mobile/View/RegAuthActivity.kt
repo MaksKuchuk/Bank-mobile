@@ -1,6 +1,8 @@
 package com.example.bank_mobile.View
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bank_mobile.R
