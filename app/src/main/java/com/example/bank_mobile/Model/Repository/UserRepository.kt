@@ -4,8 +4,10 @@ import com.example.bank_mobile.Model.HTTPInfo
 import com.example.bank_mobile.Model.HttpRoutes
 import com.example.bank_mobile.Model.Interface.IRepository.IUserRepository
 import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
+import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthIsGoodTokenResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthResponse
+import com.example.bank_mobile.Model.Serializer.Response.UserVerificationResponse
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
@@ -65,6 +67,22 @@ class UserRepository(
         }} catch (e: Exception) {
             println("Error: ${e.message}")
             UserRegAuthResponse("", "")
+        }
+    }
+
+    override suspend fun verificateUser(userVerificationRequest: UserVerificationRequest): UserVerificationResponse? {
+        return try {client.post<UserVerificationResponse> {
+            headers {
+                append(HttpHeaders.Authorization, "Bearer " + HTTPInfo.accessToken)
+            }
+            url(HttpRoutes.VERIFICATION_USER)
+            contentType(ContentType.Application.Json)
+            body = userVerificationRequest
+        }} catch (e: ClientRequestException) {
+            UserVerificationResponse(e.response.status.value)
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+            UserVerificationResponse(0)
         }
     }
 

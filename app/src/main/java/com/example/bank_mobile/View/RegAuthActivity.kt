@@ -5,15 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.bank_mobile.Model.HTTPInfo
 import com.example.bank_mobile.Model.Interface.IRepository.IUserRepository
-import com.example.bank_mobile.Model.Repository.UserRepository
 import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
-import com.example.bank_mobile.R
 import com.example.bank_mobile.databinding.ActivityRegAuthBinding
 import com.example.bank_mobile.databinding.ActivityStartBinding
 import io.ktor.client.*
@@ -51,9 +47,6 @@ class RegAuthActivity : AppCompatActivity() {
             editor.apply()
         }
         saveTokensData.observe(this@RegAuthActivity, saveTokensObserver)
-
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences("infoFile",
-            Context.MODE_PRIVATE)
 
         //goToNextScreen()
         checkTokens()
