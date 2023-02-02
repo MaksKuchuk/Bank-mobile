@@ -5,6 +5,7 @@ import com.example.bank_mobile.Model.HttpRoutes
 import com.example.bank_mobile.Model.Interface.IRepository.IUserRepository
 import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
 import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
+import com.example.bank_mobile.Model.Serializer.Response.UserProfileResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthIsGoodTokenResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserVerificationResponse
@@ -83,6 +84,21 @@ class UserRepository(
         } catch (e: Exception) {
             println("Error: ${e.message}")
             UserVerificationResponse(0)
+        }
+    }
+
+    override suspend fun getProfileUser(): UserProfileResponse? {
+        return try {client.get<UserProfileResponse> {
+            headers {
+                append(HttpHeaders.Authorization, "Bearer " + HTTPInfo.accessToken)
+            }
+            url(HttpRoutes.GETPROFILEDATA_USER)
+            contentType(ContentType.Application.Json)
+        }} catch (e: ClientRequestException) {
+            UserProfileResponse(e.response.status.value.toString(), "", "", "")
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+            UserProfileResponse("", "", "", "")
         }
     }
 

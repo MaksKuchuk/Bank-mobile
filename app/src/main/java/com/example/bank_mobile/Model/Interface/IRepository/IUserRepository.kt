@@ -3,6 +3,7 @@ package com.example.bank_mobile.Model.Interface.IRepository
 import com.example.bank_mobile.Model.Repository.UserRepository
 import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
 import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
+import com.example.bank_mobile.Model.Serializer.Response.UserProfileResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthIsGoodTokenResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthResponse
 import com.example.bank_mobile.Model.Serializer.Response.UserVerificationResponse
@@ -19,6 +20,8 @@ interface IUserRepository {
     suspend fun updateTokenUser(): UserRegAuthResponse?
 
     suspend fun verificateUser(userVerificationRequest: UserVerificationRequest): UserVerificationResponse?
+
+    suspend fun getProfileUser(): UserProfileResponse?
 
     companion object {
         private var user: IUserRepository? = null
