@@ -52,12 +52,8 @@ class RegAuthActivity : AppCompatActivity() {
         }
         saveTokensData.observe(this@RegAuthActivity, saveTokensObserver)
 
-        println("6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666")
         val sharedPreferences: SharedPreferences = this.getSharedPreferences("infoFile",
             Context.MODE_PRIVATE)
-        println(sharedPreferences.getString("accessToken", ""))
-        println("6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666")
-
 
         //goToNextScreen()
         checkTokens()
@@ -107,8 +103,12 @@ class RegAuthActivity : AppCompatActivity() {
         }
 
         CoroutineScope(Dispatchers.IO).launch {
+            var res = userRepository.updateTokenUser()!!
             var inval: Int
-            if (userRepository.updateTokenUser()!!.refresh_token != "") {
+            if (res.refresh_token != "") {
+                HTTPInfo.accessToken = res.access_token
+                HTTPInfo.refreshToken = res.refresh_token
+                saveTokensData.postValue(saveTokensData.value!! + 1)
                 inval = 2
             } else {
                 inval = 0
@@ -119,11 +119,8 @@ class RegAuthActivity : AppCompatActivity() {
     }
 
     fun goToNextScreen() {
-        println("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
         val sharedPreferences: SharedPreferences = this.getSharedPreferences("infoFile",
             Context.MODE_PRIVATE)
-        println(sharedPreferences.getString("accessToken", ""))
-        println("asdsadad")
         Intent(this, MainActivity::class.java).also { startActivity(it) }
         this.finish()
     }
