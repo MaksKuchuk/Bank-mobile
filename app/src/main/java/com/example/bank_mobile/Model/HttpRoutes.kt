@@ -9,4 +9,6 @@ object HttpRoutes {
     const val REFRESHTOKEN_USER = "$BASE_URL/api/v1/token/refresh_token"
 
     const val VERIFICATION_USER = "$BASE_URL/api/v1/user/verification"
+
+    const val GETPROFILEDATA_USER = "$BASE_URL/api/v1/user/getPersonalData"
 }
