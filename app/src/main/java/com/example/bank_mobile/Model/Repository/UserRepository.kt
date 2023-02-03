@@ -3,12 +3,11 @@ package com.example.bank_mobile.Model.Repository
 import com.example.bank_mobile.Model.HTTPInfo
 import com.example.bank_mobile.Model.HttpRoutes
 import com.example.bank_mobile.Model.Interface.IRepository.IUserRepository
+import com.example.bank_mobile.Model.Serializer.Request.UserOnlineServicesRequest
 import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
+import com.example.bank_mobile.Model.Serializer.Request.UserTakeLoanOnlineRequest
 import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
-import com.example.bank_mobile.Model.Serializer.Response.UserProfileResponse
-import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthIsGoodTokenResponse
-import com.example.bank_mobile.Model.Serializer.Response.UserRegAuthResponse
-import com.example.bank_mobile.Model.Serializer.Response.UserVerificationResponse
+import com.example.bank_mobile.Model.Serializer.Response.*
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
@@ -99,6 +98,53 @@ class UserRepository(
         } catch (e: Exception) {
             println("Error: ${e.message}")
             UserProfileResponse("", "", "", "")
+        }
+    }
+
+    override suspend fun getAllOrganisations(): List<UserAllOrganisationsResponse>? {
+        return try {client.get {
+            headers {
+                append(HttpHeaders.Authorization, "Bearer " + HTTPInfo.accessToken)
+            }
+            url(HttpRoutes.GETORGANISATIONS_USER)
+            contentType(ContentType.Application.Json)
+        }} catch (e: ClientRequestException) {
+            null
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+            emptyList()
+        }
+    }
+
+    override suspend fun getOnlineServices(userOnlineServicesRequest: UserOnlineServicesRequest): List<UserOnlineServiceResponse>? {
+        return try {client.get {
+            headers {
+                append(HttpHeaders.Authorization, "Bearer " + HTTPInfo.accessToken)
+            }
+            url(HttpRoutes.GETONLINESERVICES_USER)
+            contentType(ContentType.Application.Json)
+            parameter("orgid", userOnlineServicesRequest.orgId)
+        }} catch (e: ClientRequestException) {
+            null
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+            emptyList()
+        }
+    }
+
+    override suspend fun takeLoanOnline(userTakeLoanOnlineRequest: UserTakeLoanOnlineRequest): UserTakeLoanOnlineResponse? {
+        return try {client.post {
+            headers {
+                append(HttpHeaders.Authorization, "Bearer " + HTTPInfo.accessToken)
+            }
+            url(HttpRoutes.TAKELOANONLINE_USER)
+            contentType(ContentType.Application.Json)
+            body = userTakeLoanOnlineRequest
+        }} catch (e: ClientRequestException) {
+            null
+        } catch (e: Exception) {
+            println("Error: ${e.message}")
+            UserTakeLoanOnlineResponse(false)
         }
     }
 

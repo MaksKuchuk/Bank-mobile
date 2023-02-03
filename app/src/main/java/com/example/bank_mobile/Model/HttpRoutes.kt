@@ -11,4 +11,9 @@ object HttpRoutes {
     const val VERIFICATION_USER = "$BASE_URL/api/v1/user/verification"
 
     const val GETPROFILEDATA_USER = "$BASE_URL/api/v1/user/getPersonalData"
+
+    const val GETORGANISATIONS_USER = "$BASE_URL/api/v1/user/getAllOrganisations"
+    const val GETONLINESERVICES_USER = "$BASE_URL/api/v1/user/getOnlineServicesByOrgId"
+
+    const val TAKELOANONLINE_USER = "$BASE_URL/api/v1/user/takeLoanOnline"
 }
