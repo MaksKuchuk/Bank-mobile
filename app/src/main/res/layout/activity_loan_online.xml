@@ -4,6 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".View.LoanOnlineActivity">
+
+    <Spinner
+        android:id="@+id/organisationsSpinner"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/grey_border"
+        android:contentDescription="@string/spiner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/servicesSpinner"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/grey_border"
+        android:contentDescription="@string/spiner1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/organisationsSpinner" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/grey_border"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmitService"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/orgNameText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:hint="org"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#878787"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/serviceNameText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:hint="service"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#878787"
+            android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/timeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:hint="credit period"
+            android:background="#00000000"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#878787"
+            android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:hint="loan amount"
+            android:background="#00000000"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#878787"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmitService"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_gradient"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
