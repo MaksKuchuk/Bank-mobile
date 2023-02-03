@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/grey_border"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnSubmitService"
@@ -51,8 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
-            android:hint="org"
-            android:text="TextView"
+            android:hint="organisation"
             android:textColor="#FFFFFF"
             android:textColorHint="#878787"
             android:textSize="24sp" />
@@ -63,7 +62,16 @@
             android:layout_height="60dp"
             android:gravity="center"
             android:hint="service"
-            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#878787"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/percentText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:hint="loan interest rate"
             android:textColor="#FFFFFF"
             android:textColorHint="#878787"
             android:textSize="24sp" />
@@ -72,9 +80,9 @@
             android:id="@+id/timeEditText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:background="#00000000"
             android:gravity="center"
             android:hint="credit period"
-            android:background="#00000000"
             android:textColor="#FFFFFF"
             android:textColorHint="#878787"
             android:textSize="24sp" />
@@ -83,9 +91,9 @@
             android:id="@+id/amountEditText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:background="#00000000"
             android:gravity="center"
             android:hint="loan amount"
-            android:background="#00000000"
             android:textColor="#FFFFFF"
             android:textColorHint="#878787"
             android:textSize="24sp" />
@@ -96,7 +104,7 @@
         android:id="@+id/btnSubmitService"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/button_gradient"
         android:text="Submit"
         android:textAllCaps="false"
