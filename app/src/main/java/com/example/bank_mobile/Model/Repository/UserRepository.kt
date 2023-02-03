@@ -3,10 +3,7 @@ package com.example.bank_mobile.Model.Repository
 import com.example.bank_mobile.Model.HTTPInfo
 import com.example.bank_mobile.Model.HttpRoutes
 import com.example.bank_mobile.Model.Interface.IRepository.IUserRepository
-import com.example.bank_mobile.Model.Serializer.Request.UserOnlineServicesRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserTakeLoanOnlineRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
+import com.example.bank_mobile.Model.Serializer.Request.*
 import com.example.bank_mobile.Model.Serializer.Response.*
 import io.ktor.client.*
 import io.ktor.client.features.*
@@ -145,6 +142,16 @@ class UserRepository(
         } catch (e: Exception) {
             println("Error: ${e.message}")
             UserTakeLoanOnlineResponse(false)
+        }
+    }
+
+    override suspend fun getAllNotification(userNotificationRequest: UserNotificationRequest): List<UserNotificationResponse>? {
+        return try {client.get {
+            url(HttpRoutes.GETALLNOTIFICATION_USER)
+            contentType(ContentType.Application.Json)
+            parameter("phone", userNotificationRequest.phone)
+        }} catch (e: Exception) {
+            null
         }
     }
 

@@ -1,10 +1,7 @@
 package com.example.bank_mobile.Model.Interface.IRepository
 
 import com.example.bank_mobile.Model.Repository.UserRepository
-import com.example.bank_mobile.Model.Serializer.Request.UserOnlineServicesRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserRegAuthRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserTakeLoanOnlineRequest
-import com.example.bank_mobile.Model.Serializer.Request.UserVerificationRequest
+import com.example.bank_mobile.Model.Serializer.Request.*
 import com.example.bank_mobile.Model.Serializer.Response.*
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
@@ -27,6 +24,8 @@ interface IUserRepository {
     suspend fun getOnlineServices(userOnlineServicesRequest: UserOnlineServicesRequest): List<UserOnlineServiceResponse>?
 
     suspend fun takeLoanOnline(userTakeLoanOnlineRequest: UserTakeLoanOnlineRequest): UserTakeLoanOnlineResponse?
+
+    suspend fun getAllNotification(userNotificationRequest: UserNotificationRequest): List<UserNotificationResponse>?
 
     companion object {
         private var user: IUserRepository? = null

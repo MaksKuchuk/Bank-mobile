@@ -16,4 +16,6 @@ object HttpRoutes {
     const val GETONLINESERVICES_USER = "$BASE_URL/api/v1/user/getOnlineServicesByOrgId"
 
     const val TAKELOANONLINE_USER = "$BASE_URL/api/v1/user/takeLoanOnline"
+
+    const val GETALLNOTIFICATION_USER = "$BASE_URL/api/v1/user/getAllNotification"
 }
